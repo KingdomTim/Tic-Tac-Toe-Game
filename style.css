@@ -1,0 +1,57 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.board {
+    height: 305px;
+    width: 305px;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+     
+}
+
+#one,
+#two,
+#three,
+#four,
+#five,
+#six,
+#seven,
+#eight,
+#nine {
+    width: 99px;
+    height: 99px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#two,
+#eight,
+#five {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+#one,
+#three {
+    border-bottom: 1px solid black;
+}
+
+#seven,
+#nine {
+    border-top: 1px solid black;
+}
+
+#two {
+    border-bottom: 1px solid black;
+}
+
+#eight {
+    border-top: 1px solid black;
+}
