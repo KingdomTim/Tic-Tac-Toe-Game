@@ -1,8 +1,27 @@
-const playerFactory  = () => {
-
+const playerFactory  = (name, symbol) => {
+    return {name, symbol}
 }
 
 const gameBoard = () => {
+
+    const board = ['','','','','','','','','']
+
+    const getBoard = () => {
+        return board
+    }
+
+    const setCell = (position) => {
+        board[position] = symbol
+    }
+
+    const reset = () => {
+        for(let i = 0; i < board.length; i++) {
+            board[i] = ''
+        }
+    }
+
+    return {getBoard, setCell, reset}
+
 }
 
 const gameController = () => {
