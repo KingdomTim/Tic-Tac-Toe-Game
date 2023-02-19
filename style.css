@@ -1,57 +1,48 @@
 .container {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .board {
-    height: 305px;
-    width: 305px;
     display: flex;
-    flex-flow: wrap;
-    justify-content: center;
-     
+    flex-direction: column;
+    margin-top: 50px;
 }
 
-#one,
-#two,
-#three,
-#four,
-#five,
-#six,
-#seven,
-#eight,
-#nine {
-    width: 99px;
-    height: 99px;
+#box0,
+#box1,
+#box2,
+#box3,
+#box4,
+#box5,
+#box6,
+#box7,
+#box8 {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+}
+.row1,
+.row2,
+.row3 {
+    display: flex;
 }
 
+.row1 {
+    border-bottom: 1px solid black;
+}
 
-#two,
-#eight,
-#five {
+.row3 {
+    border-top: 1px solid black;
+}
+
+#box1,
+#box4,
+#box7 {
     border-left: 1px solid black;
     border-right: 1px solid black;
-}
-
-#one,
-#three {
-    border-bottom: 1px solid black;
-}
-
-#seven,
-#nine {
-    border-top: 1px solid black;
-}
-
-#two {
-    border-bottom: 1px solid black;
-}
-
-#eight {
-    border-top: 1px solid black;
 }
