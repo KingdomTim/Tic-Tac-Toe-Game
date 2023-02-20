@@ -46,3 +46,15 @@
     border-left: 1px solid black;
     border-right: 1px solid black;
 }
+
+#box0,
+#box1,
+#box2,
+#box3,
+#box4,
+#box5,
+#box6,
+#box7,
+#box8:hover {
+    cursor: pointer;
+}
