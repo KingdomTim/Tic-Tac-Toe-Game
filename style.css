@@ -3,6 +3,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    height: 98vh;
+    background-color: blanchedalmond;
 }
 
 .board {
@@ -57,4 +59,13 @@
 #box7,
 #box8:hover {
     cursor: pointer;
+}
+
+.restart {
+    font-size: 30px;
+    margin-top: 30px;
+}
+
+.box {
+    font-size: 85px;
 }
