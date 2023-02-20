@@ -1,6 +1,8 @@
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
 .container {
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     height: 98vh;
@@ -68,4 +70,30 @@
 
 .box {
     font-size: 85px;
+}
+
+.selection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.player1Name,
+.player2Name {
+    min-width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.startGame {
+    margin-top: 25px;
+    font-size: 30px;
+    border-radius: 10px;
+    background-color: violet;
+}
+
+.title {
+    color: black;
 }

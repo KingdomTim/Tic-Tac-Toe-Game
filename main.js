@@ -115,10 +115,24 @@ const displayController = (() => {
     const boxes = document.querySelectorAll('.box')
     const container = document.querySelector('.container')
     const announce = document.createElement('p')
+    const board = document.querySelector('.board')
+    const selection = document.querySelector('.selection')
+    const player1Name = document.querySelector('.player1Name')
+    const player2Name = document.querySelector('.player2Name')
+    const startGame = document.querySelector('.startGame')
     container.appendChild(announce)
 
+    board.style.display = 'none'
+    announce.style.display = 'none'
 
     const start = () => {
+    
+    startGame.addEventListener('click', () => {
+    if(player1Name.value !== '' && player2Name.value !== '') {
+    selection.style.display = 'none'
+    board.style.display = 'flex'
+    announce.style.display = 'flex'
+    }})
 
     boxes.forEach((box) => {box.addEventListener('click', function play() {
         symbolDisplay(box)
