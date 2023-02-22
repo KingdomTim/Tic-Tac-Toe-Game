@@ -62,7 +62,7 @@ const gameController = (() => {
     if(spot === '' && winner === null) {
         gameBoard.setCell(position, currentSymbol)
         switchTurn()
-        displayController.turnDisplay()
+        displayController.turnDisplay(player1.name)
         console.log(gameBoard.getBoard())
         checkWin()
         }
@@ -117,8 +117,8 @@ const displayController = (() => {
     const announce = document.createElement('p')
     const board = document.querySelector('.board')
     const selection = document.querySelector('.selection')
-    const player1Name = document.querySelector('.player1Name')
-    const player2Name = document.querySelector('.player2Name')
+    const xName = document.querySelector('#xName')
+    const oName = document.querySelector('#oName')
     const startGame = document.querySelector('.startGame')
     container.appendChild(announce)
 
@@ -128,10 +128,11 @@ const displayController = (() => {
     const start = () => {
     
     startGame.addEventListener('click', () => {
-    if(player1Name.value !== '' && player2Name.value !== '') {
+    if(xName.value !== '' && oName.value !== '') {
     selection.style.display = 'none'
     board.style.display = 'flex'
     announce.style.display = 'flex'
+    announce.textContent = `It is ${xName.value}'s turn`
     }})
 
     boxes.forEach((box) => {box.addEventListener('click', function play() {
@@ -148,16 +149,16 @@ const displayController = (() => {
         box.textContent = gameController.getSymbol()
     }}
 
-    const turnDisplay = () => {
+    const turnDisplay = (currentPlayer) => {
 
-        announce.textContent = `It is ${gameController.getTurn()}'s turn`
+        announce.textContent = `It is ${gameController.getTurn() === currentPlayer ? xName.value : oName.value}'s turn`
     }
 
      const winDisplay = (box) => {
 
 
         if(gameController.getWinner() === 'Tie' && box.textContent !== '') {
-            announce.textContent = `It is a ${gameController.getWinner()}.
+            announce.textContent = `It is a Tie.
             Would you like to play again?`
 
             const restart = document.createElement('button')
@@ -165,17 +166,17 @@ const displayController = (() => {
             restart.classList.add = ('.restart')
             container.appendChild(restart)
             restart.addEventListener('click', () => {
-                restart.remove()
+                container.removeChild(restart)
                 gameBoard.reset()
                 gameController.resetGame()
                 boxes.forEach((box) => {box.textContent = ''})
                 start()
-                turnDisplay()
+                turnDisplay('Player 1')
                 
                 
             })
         } else if(gameController.getWinner() !== null && box.textContent !== '') {
-            announce.textContent = `${gameController.getWinner()} has won!
+            announce.textContent = `${gameController.getWinner() === 'Player 1' ? xName.value : oName.value} has won!
             Would you like to play again?`
             
             const restart = document.createElement('button')
@@ -183,18 +184,18 @@ const displayController = (() => {
             restart.classList.add = ('.restart')
             container.appendChild(restart)
             restart.addEventListener('click', () => {
-                restart.remove()
+                container.removeChild(restart)
                 gameBoard.reset()
                 gameController.resetGame()
                 boxes.forEach((box) => {box.textContent = ''})
                 start()
-                turnDisplay()
+                turnDisplay('Player 1')
             })
         }
     }
 
+    
     start()
-    turnDisplay()
 
 
 
