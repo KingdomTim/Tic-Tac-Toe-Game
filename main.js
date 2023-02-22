@@ -114,12 +114,15 @@ const gameController = (() => {
 const displayController = (() => {
     const boxes = document.querySelectorAll('.box')
     const container = document.querySelector('.container')
-    const announce = document.createElement('p')
     const board = document.querySelector('.board')
     const selection = document.querySelector('.selection')
     const xName = document.querySelector('#xName')
     const oName = document.querySelector('#oName')
     const startGame = document.querySelector('.startGame')
+
+    const announce = document.createElement('p')
+    announce.style.fontSize = '25px'
+    announce.style.fontWeight = 'bold'
     container.appendChild(announce)
 
     board.style.display = 'none'
@@ -133,6 +136,7 @@ const displayController = (() => {
     board.style.display = 'flex'
     announce.style.display = 'flex'
     announce.textContent = `It is ${xName.value}'s turn`
+    announce.style.marginTop = '50px'
     }})
 
     boxes.forEach((box) => {box.addEventListener('click', function play() {
@@ -163,17 +167,17 @@ const displayController = (() => {
 
             const restart = document.createElement('button')
             restart.textContent = 'Restart'
-            restart.classList.add = ('.restart')
+            restart.style.backgroundColor = 'violet'
+            restart.style.fontSize = '25px'
+            restart.style.borderRadius = '10px'
             container.appendChild(restart)
             restart.addEventListener('click', () => {
                 container.removeChild(restart)
                 gameBoard.reset()
                 gameController.resetGame()
                 boxes.forEach((box) => {box.textContent = ''})
-                start()
                 turnDisplay('Player 1')
-                
-                
+                start()
             })
         } else if(gameController.getWinner() !== null && box.textContent !== '') {
             announce.textContent = `${gameController.getWinner() === 'Player 1' ? xName.value : oName.value} has won!
@@ -181,15 +185,17 @@ const displayController = (() => {
             
             const restart = document.createElement('button')
             restart.textContent = 'Restart'
-            restart.classList.add = ('.restart')
+            restart.style.backgroundColor = 'violet'
+            restart.style.fontSize = '25px'
+            restart.style.borderRadius = '10px'
             container.appendChild(restart)
             restart.addEventListener('click', () => {
                 container.removeChild(restart)
                 gameBoard.reset()
                 gameController.resetGame()
                 boxes.forEach((box) => {box.textContent = ''})
-                start()
                 turnDisplay('Player 1')
+                start()
             })
         }
     }

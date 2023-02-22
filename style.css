@@ -1,11 +1,12 @@
 body {
-    font-family: Georgia, 'Times New Roman', Times, serif
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0px;
 }
 .container {
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 98vh;
+    height: 97vh;
     background-color: blanchedalmond;
 }
 
@@ -96,4 +97,28 @@ body {
 
 .title {
     color: black;
+    font-size: 25px;
+}
+
+.restart {
+    border-radius: 10px;
+    background-color: violet;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    gap: 5px;
+    background-color: blanchedalmond;
+}
+
+.github {
+    width: 20px;
+    height: 20px;
+}
+
+.github:hover {
+    transform: scale(1.1)
 }
